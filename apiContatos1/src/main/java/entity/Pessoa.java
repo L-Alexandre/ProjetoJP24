@@ -4,21 +4,35 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
-
-@Entity 
+@Entity
 public class Pessoa {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     private String nome;
     private String endereco;
     private String cep;
     private String cidade;
     private String uf;
 
+    // Construtor padrão
+    public Pessoa() {}
 
+    // Construtor com parâmetros
+    public Pessoa(String nome, String endereco, String cep, String cidade, String uf) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.uf = uf;
+    }
+
+    // Métodos getters e setters
     public Long getId() {
         return id;
     }
@@ -62,8 +76,8 @@ public class Pessoa {
     public String getUf() {
         return uf;
     }
-    
+
     public void setUf(String uf) {
     	this.uf = uf;
-    }
+ }
 }

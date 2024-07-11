@@ -1,6 +1,5 @@
 package dto;
 
-import org.springframework.boot.SpringApplication;
 import entity.Pessoa;
 
 public record PessoaDTO(Long id, String nome, String malaDireta) {
